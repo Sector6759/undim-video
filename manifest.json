@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/chrome-manifest",
+
+  "manifest_version": 3,
+  "name": "Undim Video",
+  "description": "Removes the dimming effect from video players",
+  "version": "0.0.1",
+
+  "icons": {
+    "16": "/assets/icon-16.png",
+    "32": "/assets/icon-32.png",
+    "48": "/assets/icon-48.png",
+    "64": "/assets/icon-64.png"
+  },
+
+  "host_permissions": ["https://beta.plus.rtl.de/*", "https://www.joyn.de/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://beta.plus.rtl.de/*"],
+      "js": ["dist/content/betaRtlPlus.js"]
+    },
+    {
+      "matches": ["https://www.joyn.de/*"],
+      "js": ["dist/content/joyn.js"]
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@undim-video",
+      "strict_min_version": "147.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "minimum_chrome_version": "102"
+}
