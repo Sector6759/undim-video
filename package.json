@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "watch": "tsc --watch",
-    "build": "rm -rf dist && tsc && web-ext build --config=web-ext-config.mjs",
+    "copy-non-ts": "rsync -r --exclude='*.ts' src/ dist",
+    "watch": "bun copy-non-ts && tsc --watch",
+    "build": "rm -rf dist && bun copy-non-ts && tsc && web-ext build --config=web-ext-config.mjs",
     "format": "prettier --write ."
   },
   "devDependencies": {
