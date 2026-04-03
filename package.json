@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "copy-non-ts": "rsync -r --exclude='*.ts' src/ dist",
+    "copy-non-ts": "rsync -a --exclude='*.ts' src/ dist",
     "watch": "bun copy-non-ts && tsc --watch",
     "build": "rm -rf dist && bun copy-non-ts && tsc && web-ext build --config=web-ext-config.mjs",
     "format": "prettier --write ."
