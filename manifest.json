@@ -13,9 +13,17 @@
     "64": "/assets/icon-64.png"
   },
 
-  "host_permissions": ["https://beta.plus.rtl.de/*", "https://www.joyn.de/*"],
+  "host_permissions": [
+    "https://www.arte.tv/*",
+    "https://beta.plus.rtl.de/*",
+    "https://www.joyn.de/*"
+  ],
 
   "content_scripts": [
+    {
+      "matches": ["https://www.arte.tv/*"],
+      "css": ["dist/content/arte.css"]
+    },
     {
       "matches": ["https://beta.plus.rtl.de/*"],
       "css": ["dist/content/betaRtlPlus.css"]

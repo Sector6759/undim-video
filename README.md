@@ -6,6 +6,7 @@ Many video players dim the video when moving the mouse across the player or when
 
 Currently, the following websites are supported.
 
+- [ARTE](https://www.arte.tv/)
 - [Joyn](https://www.joyn.de/)
 - [RTL+](https://beta.plus.rtl.de/)
   - Only the beta website is supported, as the player of the non-beta website does not have any dimming effect
