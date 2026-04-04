@@ -47,7 +47,8 @@ Currently, the following websites are supported.
   - [WDR](https://www1.wdr.de/)
   - [WDR Die Maus](https://www.wdrmaus.de)
 - [ARTE](https://www.arte.tv/)
-- [Joyn](https://www.joyn.de/)
+- [Joyn Austria](https://www.joyn.at/)
+- [Joyn Germany](https://www.joyn.de/)
 - [RTL+](https://beta.plus.rtl.de/)
   - Only the beta website is supported, as the player of the non-beta website does not have any dimming effect
 

@@ -67,6 +67,7 @@
 
     "https://beta.plus.rtl.de/*",
 
+    "https://www.joyn.at/*",
     "https://www.joyn.de/*"
   ],
 
@@ -133,8 +134,12 @@
       "css": ["dist/content/beta-rtl-plus.css"]
     },
     {
+      "matches": ["https://www.joyn.at/*"],
+      "css": ["dist/content/joyn-at.css"]
+    },
+    {
       "matches": ["https://www.joyn.de/*"],
-      "js": ["dist/content/joyn.js"]
+      "js": ["dist/content/joyn-de.js"]
     }
   ],
 
