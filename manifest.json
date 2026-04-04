@@ -14,12 +14,116 @@
   },
 
   "host_permissions": [
+    "https://www.ardmediathek.de/*",
+    "https://www.tagesschau.de/*",
+    "https://www.sportschau.de/*",
+    "https://www.kika.de/*",
+
+    "https://www.br.de/*",
+
+    "https://www.hr.de/*",
+    "https://www.hr1.de/*",
+    "https://www.hr2.de/*",
+    "https://www.hr3.de/*",
+    "https://www.hr4.de/*",
+    "https://www.hr-bigband.de/*",
+    "https://www.hr-inforadio.de/*",
+    "https://www.hr-fernsehen.de/*",
+    "https://www.hr-sinfonieorchester.de/*",
+    "https://www.hessenschau.de/*",
+    "https://www.you-fm.de/*",
+
+    "https://www.mdr.de/*",
+    "https://www.mdrjump.de/*",
+
+    "https://www.radiobremen.de/*",
+    "https://www.bremeneins.de/*",
+    "https://www.bremenzwei.de/*",
+    "https://www.bremenvier.de/*",
+    "https://www.bremennext.de/*",
+    "https://www.butenunbinnen.de/*",
+
+    "https://www.ndr.de/*",
+
+    "https://www.rbb24.de/*",
+    "https://www.rbb-online.de/*",
+    "https://www.rbb888.de/*",
+    "https://www.antennebrandenburg.de/*",
+    "https://www.inforadio.de/*",
+    "https://www.fritz.de/*",
+    "https://www.radioeins.de/*",
+    "https://www.radiodrei.de/*",
+
+    "https://www.sr.de/*",
+    "https://www.unserding.de/*",
+
+    "https://www.swr.de/*",
+    "https://www.swr3.de/*",
+
+    "https://www1.wdr.de/*",
+    "https://www.wdrmaus.de/*",
+
     "https://www.arte.tv/*",
+
     "https://beta.plus.rtl.de/*",
+
     "https://www.joyn.de/*"
   ],
 
   "content_scripts": [
+    {
+      "matches": [
+        "https://www.ardmediathek.de/*",
+        "https://www.tagesschau.de/*",
+        "https://www.sportschau.de/*",
+        "https://www.kika.de/*",
+
+        "https://www.br.de/*",
+
+        "https://www.hr.de/*",
+        "https://www.hr1.de/*",
+        "https://www.hr2.de/*",
+        "https://www.hr3.de/*",
+        "https://www.hr4.de/*",
+        "https://www.hr-bigband.de/*",
+        "https://www.hr-inforadio.de/*",
+        "https://www.hr-fernsehen.de/*",
+        "https://www.hr-sinfonieorchester.de/*",
+        "https://www.hessenschau.de/*",
+        "https://www.you-fm.de/*",
+
+        "https://www.mdr.de/*",
+        "https://www.mdrjump.de/*",
+
+        "https://www.radiobremen.de/*",
+        "https://www.bremeneins.de/*",
+        "https://www.bremenzwei.de/*",
+        "https://www.bremenvier.de/*",
+        "https://www.bremennext.de/*",
+        "https://www.butenunbinnen.de/*",
+
+        "https://www.ndr.de/*",
+
+        "https://www.rbb24.de/*",
+        "https://www.rbb-online.de/*",
+        "https://www.rbb888.de/*",
+        "https://www.antennebrandenburg.de/*",
+        "https://www.inforadio.de/*",
+        "https://www.fritz.de/*",
+        "https://www.radioeins.de/*",
+        "https://www.radiodrei.de/*",
+
+        "https://www.sr.de/*",
+        "https://www.unserding.de/*",
+
+        "https://www.swr.de/*",
+        "https://www.swr3.de/*",
+
+        "https://www1.wdr.de/*",
+        "https://www.wdrmaus.de/*"
+      ],
+      "css": ["dist/content/ard.css"]
+    },
     {
       "matches": ["https://www.arte.tv/*"],
       "css": ["dist/content/arte.css"]
