@@ -26,7 +26,7 @@
     },
     {
       "matches": ["https://beta.plus.rtl.de/*"],
-      "css": ["dist/content/betaRtlPlus.css"]
+      "css": ["dist/content/beta-rtl-plus.css"]
     },
     {
       "matches": ["https://www.joyn.de/*"],
