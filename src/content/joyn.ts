@@ -1,6 +1,12 @@
 (() => {
-  let observer: MutationObserver | undefined = undefined;
   let running = false;
+
+  const style = document.createElement("style");
+  style.textContent = `
+    .overlay-controls { background: none !important; }
+    .joyn-title { background: none !important; }
+    .joyn-title::before { background-image: none !important; }
+  `;
 
   /**
    * Calls `console.debug` with the first argument set to `"undim-video"`
@@ -22,12 +28,13 @@
   }
 
   /**
-   * Tries to find the content streamer composition element, which is the common
-   * ancestor of the regular player and the ad player
+   * Tries to append {@link style} to the content streamer composition element,
+   * which is the common ancestor of the regular player and the ad player
    *
-   * @returns The `HTMLElement` if found, `undefined` otherwise
+   * @returns `false` if the content streamer composition element could not be
+   * located, `true` otherwise
    */
-  function getStreamerComposition() {
+  function appendStyle(): boolean {
     log("Locating content streamer composition");
     const streamerComposition = document
       .querySelector("glomex-integration")
@@ -35,69 +42,12 @@
       ?.shadowRoot?.querySelector(".content-streamer-composition");
     if (!(streamerComposition instanceof HTMLElement)) {
       log("Failed to locate content streamer composition");
-      return;
-    }
-    log("Located content streamer composition");
-    return streamerComposition;
-  }
-
-  /**
-   * Tries to apply the style changes needed to remove the dimming effect
-   *
-   * @param streamerComposition The value returned by `getStreamerComposition`
-   *
-   * @returns `true` if the style changes were applied, `false` if the element
-   * to which the changes should be applied to could not be located
-   */
-  function applyStyleChanges(streamerComposition: HTMLElement): boolean {
-    log("Locating dimmer");
-    const overlayControls =
-      streamerComposition.querySelector(".overlay-controls");
-    if (!(overlayControls instanceof HTMLElement)) {
-      log("Failed to locate dimmer");
       return false;
     }
-    log("Located dimmer");
-    overlayControls.style.background = "none";
-    log("Applied style changes");
+    log("Located content streamer composition");
+    streamerComposition.appendChild(style);
+    log("Appended style");
     return true;
-  }
-
-  /**
-   * Observes `streamerComposition` to react to possible ad interruptions
-   *
-   * @param streamerComposition The value returned by `getStreamerComposition()`
-   *
-   * @returns The `MutationObserver`, so it can be disconnected later
-   */
-  function observeStreamerComposition(streamerComposition: HTMLElement) {
-    const observer = new MutationObserver((records) => {
-      outer: for (const { target, addedNodes } of records) {
-        if (target !== streamerComposition) {
-          continue;
-        }
-        for (const addedNode of addedNodes) {
-          if (
-            !(addedNode instanceof HTMLElement) ||
-            !addedNode.classList.contains("content-composition-container")
-          ) {
-            continue;
-          }
-          log("Observed addition of content composition container");
-          if (applyStyleChanges(streamerComposition)) {
-            break outer;
-          }
-        }
-      }
-    });
-    log("Connecting MutationObserver");
-    observer.observe(streamerComposition, {
-      attributes: false,
-      characterData: false,
-      childList: true,
-      subtree: false,
-    });
-    return observer;
   }
 
   function initialize() {
@@ -105,11 +55,6 @@
     if (!`${location}`.startsWith("https://www.joyn.de/play/")) {
       log("Not on /play/ path, aborting initialize");
       running = false;
-      if (observer) {
-        log("Disconnecting MutationObserver");
-        observer.disconnect();
-        observer = undefined;
-      }
       return;
     }
     if (running) {
@@ -125,12 +70,9 @@
         return;
       }
       log("Attempt", attempts);
-      const streamerComposition = getStreamerComposition();
-      if (!streamerComposition) {
+      if (!appendStyle()) {
         return;
       }
-      applyStyleChanges(streamerComposition);
-      observer = observeStreamerComposition(streamerComposition);
       stopInverval(interval);
     }, 1000);
     log("Set inverval", interval);
