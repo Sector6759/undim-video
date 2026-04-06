@@ -135,11 +135,12 @@
     },
     {
       "matches": ["https://www.joyn.at/*"],
-      "css": ["dist/content/joyn-at.css"]
+      "css": ["dist/content/joyn.css"]
     },
     {
       "matches": ["https://www.joyn.de/*"],
-      "js": ["dist/content/joyn-de.js"]
+      "css": ["dist/content/joyn.css"],
+      "js": ["dist/content/joyn.js"]
     }
   ],
 
