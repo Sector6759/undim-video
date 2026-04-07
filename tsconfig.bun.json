@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/strictest",
+  "include": ["bin/**/*.ts"],
+  "compilerOptions": {
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "types": ["bun"],
+    "noEmit": true
+  }
+}
