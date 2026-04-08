@@ -5,7 +5,7 @@
   style.textContent = `
     .overlay-controls { background: none !important; }
     .joyn-title { background: none !important; }
-    .joyn-title::before { background-image: none !important; }
+    .joyn-title::before { background: none !important; }
   `;
 
   /**
