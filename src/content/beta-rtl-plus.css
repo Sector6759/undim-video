@@ -1,3 +1,7 @@
 #player-block > div:nth-child(2) {
-  opacity: 0 !important;
+  background: none !important;
+
+  > div > div {
+    background: none !important;
+  }
 }
