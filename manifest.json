@@ -63,6 +63,8 @@
     "https://www1.wdr.de/*",
     "https://www.wdrmaus.de/*",
 
+    "https://www.zdf.de/*",
+
     "https://www.arte.tv/*",
 
     "https://beta.plus.rtl.de/*",
@@ -124,6 +126,10 @@
         "https://www.wdrmaus.de/*"
       ],
       "css": ["dist/content/ard.css"]
+    },
+    {
+      "matches": ["https://www.zdf.de/*"],
+      "css": ["dist/content/zdf.css"]
     },
     {
       "matches": ["https://www.arte.tv/*"],

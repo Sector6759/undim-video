@@ -46,6 +46,7 @@ Currently, the following websites are supported.
   - [SWR3](https://www.swr3.de/)
   - [WDR](https://www1.wdr.de/)
   - [WDR Die Maus](https://www.wdrmaus.de)
+- [ZDF](https://www.zdf.de/)
 - [ARTE](https://www.arte.tv/)
 - [Joyn Austria](https://www.joyn.at/)
 - [Joyn Germany](https://www.joyn.de/)
