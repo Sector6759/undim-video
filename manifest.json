@@ -70,7 +70,9 @@
     "https://beta.plus.rtl.de/*",
 
     "https://www.joyn.at/*",
-    "https://www.joyn.de/*"
+    "https://www.joyn.de/*",
+
+    "https://www.netflix.com/*"
   ],
 
   "content_scripts": [
@@ -147,6 +149,10 @@
       "matches": ["https://www.joyn.de/*"],
       "css": ["dist/content/joyn.css"],
       "js": ["dist/content/joyn.js"]
+    },
+    {
+      "matches": ["https://www.netflix.com/*"],
+      "css": ["dist/content/netflix.css"]
     }
   ],
 

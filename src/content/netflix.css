@@ -1,0 +1,6 @@
+.advisory-background,
+.watch-video--back-container,
+.watch-video--flag-container,
+.watch-video--bottom-controls-container {
+  background: none !important;
+}
