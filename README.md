@@ -2,6 +2,11 @@
 
 Many video players dim the video when moving the mouse across the player or when pausing the video. This browser extension removes that dimming effect.
 
+## Download
+
+- [Chrome](https://chromewebstore.google.com/detail/undim-video/emgajpejjobgbklcemakohifnkcffjbc)
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/undim-video/)
+
 ## Supported web sites/players
 
 Currently, the following websites are supported.
