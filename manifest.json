@@ -67,7 +67,7 @@
 
     "https://www.arte.tv/*",
 
-    "https://beta.plus.rtl.de/*",
+    "https://plus.rtl.de/*",
 
     "https://www.joyn.at/*",
     "https://www.joyn.de/*",
@@ -138,8 +138,8 @@
       "css": ["dist/content/arte.css"]
     },
     {
-      "matches": ["https://beta.plus.rtl.de/*"],
-      "css": ["dist/content/beta-rtl-plus.css"]
+      "matches": ["https://plus.rtl.de/*"],
+      "css": ["dist/content/rtl-plus.css"]
     },
     {
       "matches": ["https://www.joyn.at/*"],

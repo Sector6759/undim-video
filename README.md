@@ -55,8 +55,7 @@ Currently, the following websites are supported.
 - [ARTE](https://www.arte.tv/)
 - [Joyn Austria](https://www.joyn.at/)
 - [Joyn Germany](https://www.joyn.de/)
-- [RTL+](https://beta.plus.rtl.de/)
-  - Only the beta website is supported, as the player of the non-beta website does not have any dimming effect
+- [RTL+](https://plus.rtl.de/)
 - [Netflix](https://www.netflix.com/)
 
 If you want this extension to support more sites, [email me](mailto:twosixninesoft@idtu.page) or [create an issue on GitHub](https://github.com/Sector6759/undim-video/issues/new).
