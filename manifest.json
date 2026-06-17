@@ -142,11 +142,7 @@
       "css": ["dist/content/rtl-plus.css"]
     },
     {
-      "matches": ["https://www.joyn.at/*"],
-      "css": ["dist/content/joyn.css"]
-    },
-    {
-      "matches": ["https://www.joyn.de/*"],
+      "matches": ["https://www.joyn.at/*", "https://www.joyn.de/*"],
       "css": ["dist/content/joyn.css"],
       "js": ["dist/content/joyn.js"]
     },

@@ -52,7 +52,7 @@
 
   function initialize() {
     log("Initializing");
-    if (!`${location}`.startsWith("https://www.joyn.de/play/")) {
+    if (!/^https:\/\/www\.joyn\.(?:at|de)\/play\//.test(String(location))) {
       log("Not on /play/ path, aborting initialize");
       running = false;
       return;
