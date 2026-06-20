@@ -57,6 +57,7 @@ Currently, the following websites are supported.
 - [Joyn Germany](https://www.joyn.de/)
 - [RTL+](https://plus.rtl.de/)
 - [Netflix](https://www.netflix.com/)
+- [Twitch](https://www.twitch.tv/)
 
 If you want this extension to support more sites, [email me](mailto:twosixninesoft@idtu.page) or [create an issue on GitHub](https://github.com/Sector6759/undim-video/issues/new).
 
