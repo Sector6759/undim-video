@@ -72,7 +72,9 @@
     "https://www.joyn.at/*",
     "https://www.joyn.de/*",
 
-    "https://www.netflix.com/*"
+    "https://www.netflix.com/*",
+
+    "https://www.twitch.tv/*"
   ],
 
   "content_scripts": [
@@ -149,6 +151,10 @@
     {
       "matches": ["https://www.netflix.com/*"],
       "css": ["dist/content/netflix.css"]
+    },
+    {
+      "matches": ["https://www.twitch.tv/*"],
+      "css": ["dist/content/twitch.css"]
     }
   ],
 
