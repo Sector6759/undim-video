@@ -28,24 +28,24 @@
   }
 
   /**
-   * Tries to append {@link style} to the content streamer composition element,
+   * Tries to append {@link style} to the content composition element,
    * which is the common ancestor of the regular player and the ad player
    *
-   * @returns `false` if the content streamer composition element could not be
+   * @returns `false` if the content composition element could not be
    * located, `true` otherwise
    */
   function appendStyle(): boolean {
-    log("Locating content streamer composition");
-    const streamerComposition = document
+    log("Locating content composition");
+    const contentComposition = document
       .querySelector("glomex-integration")
-      ?.shadowRoot?.querySelector("turbo-player-ui")
-      ?.shadowRoot?.querySelector(".content-streamer-composition");
-    if (!(streamerComposition instanceof HTMLElement)) {
-      log("Failed to locate content streamer composition");
+      ?.shadowRoot?.querySelector("turbo-glomex-player-ui")
+      ?.shadowRoot?.querySelector(".content-composition");
+    if (!(contentComposition instanceof HTMLElement)) {
+      log("Failed to locate content composition");
       return false;
     }
-    log("Located content streamer composition");
-    streamerComposition.appendChild(style);
+    log("Located content composition");
+    contentComposition.appendChild(style);
     log("Appended style");
     return true;
   }
