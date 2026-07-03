@@ -1,7 +1,7 @@
 #player-block > div:nth-child(2) {
   background: none !important;
 
-  > div > div {
+  > div {
     background: none !important;
   }
 }
