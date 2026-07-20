@@ -14,7 +14,7 @@
    * @param data Arguments to pass through
    */
   function log(...data: any[]) {
-    data /* && console.debug("undim-video", ...data) */;
+    data; /* && console.debug("undim-video", ...data) */
   }
 
   /**
