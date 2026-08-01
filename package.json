@@ -11,7 +11,7 @@
     "build:ts": "tsc --project tsconfig.app.json",
     "build:web-ext": "web-ext build --config=web-ext-config.mjs",
     "build": "bun --sequential remove:dist copy:non-ts build:ts build:web-ext",
-    "format": "prettier --write ."
+    "format": "prettier --write --experimental-cli ."
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.8",
