@@ -1,7 +1,13 @@
-#player-block > div:nth-child(2) {
-  background: none !important;
-
-  > div {
+#player-block {
+  > div:nth-child(2) {
     background: none !important;
+
+    > div {
+      background: none !important;
+    }
+  }
+
+  .tp-ad:not(:has(video[src])) {
+    display: none;
   }
 }
