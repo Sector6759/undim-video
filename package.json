@@ -17,9 +17,9 @@
     "@tsconfig/strictest": "^2.0.8",
     "@types/bun": "^1.4.2",
     "@types/firefox-webext-browser": "^143.0.0",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.9",
     "typescript": "^7.0.2",
-    "web-ext": "^10.6.0"
+    "web-ext": "^10.7.0"
   },
   "prettier": {}
 }
