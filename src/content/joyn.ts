@@ -37,8 +37,10 @@
   function appendStyle(): boolean {
     log("Locating content composition");
     const contentComposition = document
-      .querySelector("glomex-integration")
-      ?.shadowRoot?.querySelector("turbo-glomex-player-ui")
+      .querySelector("glomex-integration, joyn-integration")
+      ?.shadowRoot?.querySelector(
+        "turbo-glomex-player-ui, turbo-joyn-player-ui",
+      )
       ?.shadowRoot?.querySelector(".content-composition");
     if (!(contentComposition instanceof HTMLElement)) {
       log("Failed to locate content composition");
