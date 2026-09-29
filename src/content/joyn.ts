@@ -1,5 +1,19 @@
 (() => {
   let running = false;
+  const AD_PLAYER_OBSERVED_ATTRIBUTE = "overlay-visible";
+  const observer = new MutationObserver((records) => {
+    const lastRecord = records.at(-1);
+    if (!(lastRecord?.target instanceof HTMLElement)) {
+      return;
+    }
+    if (
+      lastRecord.oldValue === null &&
+      lastRecord.target.hasAttribute(AD_PLAYER_OBSERVED_ATTRIBUTE)
+    ) {
+      lastRecord.target.removeAttribute(AD_PLAYER_OBSERVED_ATTRIBUTE);
+      log("Removed attribute", AD_PLAYER_OBSERVED_ATTRIBUTE);
+    }
+  });
 
   const style = document.createElement("style");
   style.textContent = `
@@ -69,6 +83,23 @@
   }
 
   /**
+   * Tries to get the ad player element
+   *
+   * @param playerUi The ancestor element of the ad player element
+   * @returns The ad player element, or `undefined` if not found
+   */
+  function getAdPlayer(playerUi: HTMLElement): HTMLElement | undefined {
+    log("Locating ad player");
+    const adPlayer = playerUi.querySelector(".ad-player");
+    if (!(adPlayer instanceof HTMLElement)) {
+      log("Failed to locate ad player");
+      return;
+    }
+    log("Located ad player");
+    return adPlayer;
+  }
+
+  /**
    * Appends {@link style} to the content composition element
    *
    * @param contentComposition The content composition element to append the
@@ -79,11 +110,27 @@
     log("Appended style", contentComposition);
   }
 
+  /**
+   * Connects {@link observer} to the ad player element to watch for changes to
+   * its `overlay-visible` attribute to prevent ads being shown
+   *
+   * @param adPlayer The ad player element to connect the observer to
+   */
+  function connectObserver(adPlayer: HTMLElement): void {
+    observer.observe(adPlayer, {
+      attributeFilter: [AD_PLAYER_OBSERVED_ATTRIBUTE],
+      attributeOldValue: true,
+    });
+    log("Connected observer", adPlayer);
+  }
+
   function initialize() {
     log("Initializing");
     if (!/^https:\/\/www\.joyn\.(?:at|de)\/play\//.test(String(location))) {
       log("Not on /play/ path, aborting initialize");
       running = false;
+      observer.disconnect();
+      log("Disconnected observer");
       return;
     }
     if (running) {
@@ -107,7 +154,12 @@
       if (!contentComposition) {
         return;
       }
+      const adPlayer = getAdPlayer(playerUi);
+      if (!adPlayer) {
+        return;
+      }
       appendStyle(contentComposition);
+      connectObserver(adPlayer);
       stopInverval(interval);
     }, 1000);
     log("Set inverval", interval);
