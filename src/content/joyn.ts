@@ -28,28 +28,55 @@
   }
 
   /**
-   * Tries to append {@link style} to the content composition element,
-   * which is the common ancestor of the regular player and the ad player
+   * Tries to get the player UI element
    *
-   * @returns `false` if the content composition element could not be
-   * located, `true` otherwise
+   * @returns The player UI element, or `undefined` if not found
    */
-  function appendStyle(): boolean {
-    log("Locating content composition");
-    const contentComposition = document
+  function getPlayerUi(): HTMLElement | undefined {
+    log("Locating player UI");
+    const playerUi = document
       .querySelector("glomex-integration, joyn-integration")
       ?.shadowRoot?.querySelector(
         "turbo-glomex-player-ui, turbo-joyn-player-ui",
-      )
-      ?.shadowRoot?.querySelector(".content-composition");
+      );
+    if (!(playerUi instanceof HTMLElement)) {
+      log("Failed to locate player UI");
+      return;
+    }
+    log("Located player UI");
+    return playerUi;
+  }
+
+  /**
+   * Tries to get the content composition element
+   *
+   * @param playerUi The ancestor element of the content composition element
+   * @returns The content composition element, or `undefined` if not found
+   */
+  function getContentComposition(
+    playerUi: HTMLElement,
+  ): HTMLElement | undefined {
+    log("Locating content composition");
+    const contentComposition = playerUi.shadowRoot?.querySelector(
+      ".content-composition",
+    );
     if (!(contentComposition instanceof HTMLElement)) {
       log("Failed to locate content composition");
-      return false;
+      return;
     }
     log("Located content composition");
+    return contentComposition;
+  }
+
+  /**
+   * Appends {@link style} to the content composition element
+   *
+   * @param contentComposition The content composition element to append the
+   * style to
+   */
+  function appendStyle(contentComposition: HTMLElement): void {
     contentComposition.appendChild(style);
-    log("Appended style");
-    return true;
+    log("Appended style", contentComposition);
   }
 
   function initialize() {
@@ -72,9 +99,15 @@
         return;
       }
       log("Attempt", attempts);
-      if (!appendStyle()) {
+      const playerUi = getPlayerUi();
+      if (!playerUi) {
         return;
       }
+      const contentComposition = getContentComposition(playerUi);
+      if (!contentComposition) {
+        return;
+      }
+      appendStyle(contentComposition);
       stopInverval(interval);
     }, 1000);
     log("Set inverval", interval);
